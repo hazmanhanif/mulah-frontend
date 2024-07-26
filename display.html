@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, initial-scale=1.0">
+    <title>Display Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8f8f8;
+            overflow: hidden; /* Prevent scrollbars from appearing */
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 1s forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .logo {
+            font-size: 28px;
+            color: #FF6600;
+            font-weight: 800;
+            margin-bottom: 10px;
+            padding: 10px;
+            transition: color 0.3s ease;
+        }
+        .logo:hover {
+            color: #e55b00;
+        }
+        p {
+            margin: 10px 0;
+            font-size: 18px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        p:hover {
+            color: #FF6600;
+        }
+        hr {
+            border: none;
+            height: 1px;
+            background: #ddd;
+            margin: 20px auto;
+            width: 80%;
+        }
+        .button {
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #e55b00;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="dataContainer">
+        <div class="logo">MULAH</div>
+        <h2>Entered Data</h2>
+        <hr>
+        <p><strong>Phone Number:</strong> <span id="displayPhone"></span></p>
+        <p><strong>Name:</strong> <span id="displayName"></span></p>
+        <p><strong>Email:</strong> <span id="displayEmail"></span></p>
+        <p><strong>Birthday:</strong> <span id="displayBirthday"></span></p>
+        <button class="button" onclick="window.location.href='homepage.html'">Return to Homepage</button>
+    </div>
+    <script>
+        const container = document.getElementById('dataContainer');
+        container.classList.add('show');
+        
+        document.getElementById('displayPhone').innerText = localStorage.getItem('phone');
+        document.getElementById('displayName').innerText = localStorage.getItem('name');
+        document.getElementById('displayEmail').innerText = localStorage.getItem('email');
+        document.getElementById('displayBirthday').innerText = localStorage.getItem('birthday');
+    </script>
+</body>
+</html>

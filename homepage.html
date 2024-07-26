@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, initial-scale=1.0">
+    <title>Check Loyalty Points</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 10;
+            background-color: #f8f8f8;
+        }
+
+        h2{
+            font-family: "Times New Roman", Times, serif;
+            font-size: 50px;
+            text-align: center;
+            word-spacing: 1000px;
+        }
+
+        p{
+            color: #FF6600;
+        }
+        .container {
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .container:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .logo {
+            font-size: 28px;
+            color: #FF6600;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-weight: 800;
+            padding: 10px;
+        }
+        input[type="tel"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 20px 0;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input[type="tel"]:focus {
+            border-color: #FF6600;
+            outline: none;
+        }
+        button {
+            background-color: #FF6600;
+            color: white;
+            border: none;
+            padding: 15px;
+            width: 100%;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #e55b00;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">MULAH</div>
+        <h2>Hello, <br>Welcome!</h2>
+        <p>Check Your Loyalty Points & Rewards</p>
+        <input type="tel" id="phone" placeholder="+60 Enter your mobile number" />
+        <br>
+        <br>
+
+        <button onclick="checkLoyaltyPoints()">Check Loyalty Points</button>
+        <br>
+        <br>
+        <hr>
+        <p style="color: black;">Powered by <a href="https://www.mulahrewards.com/">MulahRewards.com</a></p>
+    </div>
+    <script>
+        function checkLoyaltyPoints() {
+            const phone = document.getElementById('phone').value;
+            if (phone === '+60173527250') {
+                localStorage.setItem('phone', phone);
+                window.location.href = 'registration.html';
+            } else {
+                alert('Invalid phone number');
+            }
+        }
+    </script>
+</body>
+</html>
